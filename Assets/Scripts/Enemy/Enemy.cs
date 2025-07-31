@@ -2,12 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
    private NavMeshAgent agent;
     private Animator animator;
     [SerializeField] private Transform EndPoint;
     [SerializeField] private string animatorParam_Iswalking;
+    [SerializeField] private int damage;
 
     private void Awake()
     {
@@ -23,12 +24,19 @@ public class EnemyMovement : MonoBehaviour
    
     void Update()
     {
-        if (agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             if (!agent.hasPath || agent.pathStatus == NavMeshPathStatus.PathComplete)
             {
-                animator.SetBool(animatorParam_Iswalking, false);
+                ReachedEnd();
             }
         }
+    }
+
+    private void ReachedEnd()
+    {
+        animator.SetBool(animatorParam_Iswalking, false);
+        GameManager.Instance.playerHealth.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }
