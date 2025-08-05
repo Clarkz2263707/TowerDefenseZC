@@ -79,6 +79,9 @@ PrefabInstance:
       addedObject: {fileID: 3969773339197967904}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84fc6f976e636e74a97176889a1bfa8d, type: 3}
       insertIndex: -1
+      addedObject: {fileID: -3995068052006518393}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84fc6f976e636e74a97176889a1bfa8d, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6689995888716487294}
   m_SourcePrefab: {fileID: 100100000, guid: 84fc6f976e636e74a97176889a1bfa8d, type: 3}
 --- !u!1 &8185249688217639802 stripped
@@ -145,6 +148,19 @@ MonoBehaviour:
   EndPoint: {fileID: 0}
   animatorParam_Iswalking: IsWalking
   damage: 1
+--- !u!114 &-3995068052006518393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185249688217639802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c851ac7bed732784aa1beabf6ba4984c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
 --- !u!136 &6689995888716487294
 CapsuleCollider:
   m_ObjectHideFlags: 0
