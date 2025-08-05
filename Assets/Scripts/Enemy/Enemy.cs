@@ -17,8 +17,13 @@ public class Enemy : MonoBehaviour
     }
     void Start()
     {
-        agent.SetDestination(EndPoint.position);
         animator.SetBool(animatorParam_Iswalking, true);
+    }
+
+    public void Initialized(Transform inputEndPoint)
+    {   
+        EndPoint = inputEndPoint;
+        agent.SetDestination(inputEndPoint.position);
     }
 
    

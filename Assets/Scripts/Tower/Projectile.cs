@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     [SerializeField] private int damage = 10;
     [SerializeField] private float speed = 20f;
@@ -13,7 +13,7 @@ public abstract class Projectile : MonoBehaviour
     }
 
    
-    protected virtual void Update()
+    void Update()
     {
         if (target != null)
         {
@@ -33,7 +33,7 @@ public abstract class Projectile : MonoBehaviour
         target = inputTarget;
     }
 
-    protected private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.transform == target)
         {
