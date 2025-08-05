@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class BallistaTower : Tower
 {
-    [SerializeField] private Projectile arrowPrefab;
-   
+    [SerializeField] private GameObject projectilePrefab;
 
     protected override void Update()
     {
         base.Update();
         
     }
-
     protected override void FireAt(Enemy target)
     {
-        if (arrowPrefab != null)
+        if (projectilePrefab != null)
         {
-            GameObject arrowInstance = Instantiate(arrowPrefab.gameObject, transform.position, Quaternion.identity);
-            arrowInstance.GetComponent<Projectile>().SetTarget(target.transform);
+            GameObject projectileInstance = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            projectileInstance.GetComponent<Projectile>().SetTarget(target.transform);
         }
     }
 
@@ -25,7 +23,19 @@ public class BallistaTower : Tower
         get
         {
             ClearDestroyedEnemies();
-            return enemiesInRange.Count > 0 ? enemiesInRange[0] : null;
+
+            Enemy closestEnemy = null;
+            float closestDistance = float.MaxValue;
+            foreach (Enemy enemy in enemiesInRange)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = enemy;
+                }
+            }
+            return closestEnemy;
         }
     }
 }
