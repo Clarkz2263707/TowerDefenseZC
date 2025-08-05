@@ -124,7 +124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
       propertyPath: m_Name
-      value: Tower
+      value: Ballista Tower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -184,4 +184,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireCooldown: 1
-  projectilePrefab: {fileID: 7305575765777114195, guid: af739ef048f80b6428ec479618806817, type: 3}
+  arrowPrefab: {fileID: 8412605169476838554, guid: af739ef048f80b6428ec479618806817, type: 3}
