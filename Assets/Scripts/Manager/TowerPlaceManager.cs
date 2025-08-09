@@ -21,22 +21,26 @@ public class TowerPlaceManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-      if(isPlacingTower)
+        if (isPlacingTower)
         {
             Ray ray = MainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if(Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, TileLayer))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, TileLayer))
             {
                 towerPlacementPosition = hitInfo.transform.position + Vector3.up * placementHeightOffset;
-                towerPreview.transform.position = towerPlacementPosition;
-                towerPreview.SetActive(true);
+                if (towerPreview != null)
+                {
+                    towerPreview.transform.position = towerPlacementPosition;
+                    towerPreview.SetActive(true);
+                }
                 isTileSelected = true;
             }
             else
             {
-                towerPreview.SetActive(false);
+                if (towerPreview != null)
+                    towerPreview.SetActive(false);
                 isTileSelected = false;
             }
         }
@@ -72,10 +76,18 @@ public class TowerPlaceManager : MonoBehaviour
     {
         if(isPlacingTower && isTileSelected)
         {
-            Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
-            Destroy(towerPreview);
-            currentTowerPrefabToSpawn = null;
-            isPlacingTower = false;
+            int towerCost = currentTowerPrefabToSpawn.GetComponent<Tower>().Cost;
+            if (MoneyManager.Instance.SpendMoney(towerCost))
+            {
+                Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
+                Destroy(towerPreview);
+                currentTowerPrefabToSpawn = null;
+                isPlacingTower = false;
+            }
+            else
+            {
+                Debug.Log("Not enough money to place this tower!");
+            }
         }
     }
 }
