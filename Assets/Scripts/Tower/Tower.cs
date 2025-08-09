@@ -4,12 +4,16 @@ using System.Collections.Generic;
 [RequireComponent(typeof(SphereCollider))]
 public abstract class Tower : MonoBehaviour
 {
+    [SerializeField] private int cost = 100; 
+    public int Cost => cost;
+
     public float fireCooldown = 1.0f;
 
     protected float currentFireCooldown = 0.0f;
     protected List<Enemy> enemiesInRange = new List<Enemy>();
 
-    
+    [SerializeField] public Transform weaponTransform;
+    [SerializeField] private Tower tower;
 
     protected virtual void Update()
     {
@@ -19,6 +23,16 @@ public abstract class Tower : MonoBehaviour
         {
             FireAt(closestEnemy);
             currentFireCooldown = fireCooldown;
+        }
+        if (tower == null || weaponTransform == null)
+            return;
+
+        Enemy target = TargetEnemy;
+        if (target != null)
+        {
+            Vector3 targetPosition = target.transform.position;
+            targetPosition.y = weaponTransform.position.y;
+            weaponTransform.LookAt(targetPosition);
         }
     }
 
