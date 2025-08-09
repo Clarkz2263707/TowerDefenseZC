@@ -21,26 +21,22 @@ public class TowerPlaceManager : MonoBehaviour
         
     }
 
-    
+    // Update is called once per frame
     void Update()
     {
-        if (isPlacingTower)
+      if(isPlacingTower)
         {
             Ray ray = MainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, TileLayer))
+            if(Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, TileLayer))
             {
                 towerPlacementPosition = hitInfo.transform.position + Vector3.up * placementHeightOffset;
-                if (towerPreview != null)
-                {
-                    towerPreview.transform.position = towerPlacementPosition;
-                    towerPreview.SetActive(true);
-                }
+                towerPreview.transform.position = towerPlacementPosition;
+                towerPreview.SetActive(true);
                 isTileSelected = true;
             }
             else
             {
-                if (towerPreview != null)
-                    towerPreview.SetActive(false);
+                towerPreview.SetActive(false);
                 isTileSelected = false;
             }
         }
@@ -76,18 +72,10 @@ public class TowerPlaceManager : MonoBehaviour
     {
         if(isPlacingTower && isTileSelected)
         {
-            int towerCost = currentTowerPrefabToSpawn.GetComponent<Tower>().Cost;
-            if (MoneyManager.Instance.SpendMoney(towerCost))
-            {
-                Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
-                Destroy(towerPreview);
-                currentTowerPrefabToSpawn = null;
-                isPlacingTower = false;
-            }
-            else
-            {
-                Debug.Log("Not enough money to place this tower!");
-            }
+            Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
+            Destroy(towerPreview);
+            currentTowerPrefabToSpawn = null;
+            isPlacingTower = false;
         }
     }
 }

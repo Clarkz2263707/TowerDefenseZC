@@ -3,8 +3,7 @@ using UnityEngine;
 public class BallistaTower : Tower
 {
     [SerializeField] private Projectile arrowPrefab;
-    
-    
+   
 
     protected override void Update()
     {
@@ -16,7 +15,7 @@ public class BallistaTower : Tower
     {
         if (arrowPrefab != null)
         {
-            GameObject arrowInstance = Instantiate(arrowPrefab.gameObject, weaponTransform.position, Quaternion.identity);
+            GameObject arrowInstance = Instantiate(arrowPrefab.gameObject, transform.position, Quaternion.identity);
             arrowInstance.GetComponent<Projectile>().SetTarget(target.transform);
         }
     }
