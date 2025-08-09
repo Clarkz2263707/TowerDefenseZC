@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
       propertyPath: m_Name
-      value: Tower
+      value: Catapult Tower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
       insertIndex: -1
       addedObject: {fileID: 443364544028930594}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3841389881696116811}
   m_SourcePrefab: {fileID: 100100000, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
 --- !u!4 &151170706169637091 stripped
 Transform:
@@ -104,8 +107,25 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &3841389881696116811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671810779881665113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3abf7d7a92298b428d520988a519420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 100
+  fireCooldown: 1.5
+  weaponTransform: {fileID: 800867984477701333}
+  tower: {fileID: 3841389881696116811}
+  catapultProjectilePrefab: {fileID: -2900069106284575598, guid: 917ce55813ad23e4b812dc345780e414, type: 3}
 --- !u!1001 &907466860348023614
 PrefabInstance:
   m_ObjectHideFlags: 0

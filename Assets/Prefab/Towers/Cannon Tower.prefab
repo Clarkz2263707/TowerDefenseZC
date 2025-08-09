@@ -136,6 +136,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8004026521366435302}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2902884363716909033}
   m_SourcePrefab: {fileID: 100100000, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
 --- !u!1 &8225858387162290360 stripped
 GameObject:
@@ -161,8 +164,25 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-2902884363716909033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8225858387162290360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88831c895cec7ba41a67548785848bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 160
+  fireCooldown: 2
+  weaponTransform: {fileID: 8838479572535267216}
+  tower: {fileID: -2902884363716909033}
+  cannonballPrefab: {fileID: 7506060625528697976, guid: 73cfe7ae082ec2c4e817aeb8ef719e6f, type: 3}
 --- !u!4 &8747061617470571010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
