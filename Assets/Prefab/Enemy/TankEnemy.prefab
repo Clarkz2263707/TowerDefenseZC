@@ -140,6 +140,7 @@ MonoBehaviour:
   animatorParam_Iswalking: IsWalking
   damage: 5
   moneyDropped: 30
+  EnemyDeath: {fileID: 8300000, guid: b527ed58250f6d442b1778e0da61031b, type: 3}
 --- !u!114 &2715179286972224459
 MonoBehaviour:
   m_ObjectHideFlags: 0

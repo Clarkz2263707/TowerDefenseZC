@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  gameOver: GameOverMenu
 --- !u!114 &5253128592242151761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +110,7 @@ MonoBehaviour:
   animatorParam_Iswalking: IsWalking
   damage: 2
   moneyDropped: 20
+  EnemyDeath: {fileID: 8300000, guid: b527ed58250f6d442b1778e0da61031b, type: 3}
 --- !u!136 &4319744446361269589
 CapsuleCollider:
   m_ObjectHideFlags: 0
