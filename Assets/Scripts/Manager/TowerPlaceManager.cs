@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class TowerPlaceManager : MonoBehaviour
 {
+    //Summary
+    //Handles the placing of towers upon selecting them at the UI listed at the bottom of the screen.
+    //Summary
     public Camera MainCamera;
     public LayerMask TileLayer;
     public InputAction PlaceTowerAction;
@@ -16,12 +19,13 @@ public class TowerPlaceManager : MonoBehaviour
 
     [SerializeField] private bool isPlacingTower = false;
     private bool isTileSelected = false;
+    [SerializeField] private AudioClip SelectButton;
     void Start()
     {
         
     }
 
-    
+    //Gathers the raycasts from where the mouse is pointing to make tower placement possible and creates the tower preview.
     void Update()
     {
         if (isPlacingTower)
@@ -57,7 +61,7 @@ public class TowerPlaceManager : MonoBehaviour
         PlaceTowerAction.performed -= OnPlaceTower;
         PlaceTowerAction.Disable();
     }
-
+    //starts the actual tower placing process with the preview over appropriate ground.
     public void StartPlacingTower(GameObject towerPrefab)
     {
         if (currentTowerPrefabToSpawn != towerPrefab)
@@ -71,7 +75,7 @@ public class TowerPlaceManager : MonoBehaviour
             towerPreview = Instantiate(currentTowerPrefabToSpawn);
         }
     }
-
+    //handles the operation of actually placing the tower and deducts money when the tower is placed.
     private void OnPlaceTower(InputAction.CallbackContext context)
     {
         if(isPlacingTower && isTileSelected)
@@ -83,6 +87,7 @@ public class TowerPlaceManager : MonoBehaviour
                 Destroy(towerPreview);
                 currentTowerPrefabToSpawn = null;
                 isPlacingTower = false;
+                SoundManager.instance.PlaySoundFXClip(SelectButton, transform, 1f);
             }
             else
             {
