@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
     }
 
     //sets the endpoint when initialized/spawned
-    public void Initialized(Transform inputEndPoint)
+    private void Initialized(Transform inputEndPoint)
     {   
         EndPoint = inputEndPoint;
         agent.SetDestination(inputEndPoint.position);
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
     //checks enemy health and if health is 0 they die.
-    void CheckEnemyDeath(int currentHealth, int maxHealth)
+    private void CheckEnemyDeath(int currentHealth, int maxHealth)
     {
         if (currentHealth <= 0)
         {
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
     }
 
     //handles death, gives money, destroys game object and plays death audio.
-    public void Die()
+    private void Die()
     {
         MoneyManager.Instance?.AddMoney(moneyDropped);
         OnEnemyDeath?.Invoke(this);

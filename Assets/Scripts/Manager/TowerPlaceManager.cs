@@ -6,20 +6,17 @@ public class TowerPlaceManager : MonoBehaviour
     //Summary
     //Handles the placing of towers upon selecting them at the UI listed at the bottom of the screen.
     //Summary
+    [SerializeField] private float placementHeightOffset = 0.2f;
+    [SerializeField] private bool isPlacingTower = false;
+    [SerializeField] private AudioClip SelectButton;
     public Camera MainCamera;
     public LayerMask TileLayer;
     public InputAction PlaceTowerAction;
-
-    
-    
     private GameObject currentTowerPrefabToSpawn;
     private GameObject towerPreview;
     private Vector3 towerPlacementPosition;
-    [SerializeField] private float placementHeightOffset = 0.2f;
-
-    [SerializeField] private bool isPlacingTower = false;
     private bool isTileSelected = false;
-    [SerializeField] private AudioClip SelectButton;
+   
     void Start()
     {
         

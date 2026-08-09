@@ -7,16 +7,16 @@ using System.Collections.Generic;
 [RequireComponent(typeof(SphereCollider))]
 public abstract class Tower : MonoBehaviour
 {
-    [SerializeField] private int cost = 100; 
+    [SerializeField] private int cost = 100;
+    [SerializeField] public Transform weaponTransform;
+    [SerializeField] private Tower tower; 
     public int Cost => cost;
-
     public float fireCooldown = 1.0f;
-
     protected float currentFireCooldown = 0.0f;
     protected List<Enemy> enemiesInRange = new List<Enemy>();
 
-    [SerializeField] public Transform weaponTransform;
-    [SerializeField] private Tower tower;
+    
+    
     //gathers the firerate cooldown, closest enemy, weapon transform, and enemy targetting.
     protected virtual void Update()
     {

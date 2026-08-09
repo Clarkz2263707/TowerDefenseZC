@@ -15,12 +15,12 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-    public void ResumeButton()
+    private void ResumeButton()
     {
         container.SetActive(false);
         Time.timeScale = 1;
     }
-    public void MainMenuButton()
+    private void MainMenuButton()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }

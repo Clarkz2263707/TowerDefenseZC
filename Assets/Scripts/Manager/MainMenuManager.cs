@@ -9,17 +9,17 @@ public class MainMenuManager1 : MonoBehaviour
     // Summary
     //Handles the operations of the main menu in regards to pressing the play button, options button, and the quit button.
     // Summary
-    public void OnStartButtonPressed()
+    private void OnStartButtonPressed()
     {
         SceneManager.LoadScene(level1);
     }
 
-    public void OnOptionsButtonPressed()
+    private void OnOptionsButtonPressed()
     {
         SceneManager.LoadScene(optionsMenu);
     }
 
-    public void OnExitButtonPressed()
+    private void OnExitButtonPressed()
     {
         Application.Quit();
 #if UNITY_EDITOR

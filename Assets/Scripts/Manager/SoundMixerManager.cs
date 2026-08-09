@@ -10,12 +10,12 @@ public class SoundMixerManager : MonoBehaviour
     //Summary
     [SerializeField] private AudioMixer audioMixer;
 
-    public void SetSoundFXVolume(float level)
+    private void SetSoundFXVolume(float level)
     {
         audioMixer.SetFloat("SFXVolume", Mathf.Log10(level) * 20f);
     }
 
-    public void SetMusicVolume(float level)
+    private void SetMusicVolume(float level)
     {
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(level) * 20f);
     }

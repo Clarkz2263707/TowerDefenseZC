@@ -37,7 +37,7 @@ public class WaveManager : MonoBehaviour
         StartLevel();
     }
 
-    public void StartLevel()
+    private void StartLevel()
     {
         StartCoroutine(StartWave());
     }
@@ -57,7 +57,7 @@ public class WaveManager : MonoBehaviour
         CheckForLevelEnd();
     }
     //handles spawning of enemies
-    public void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint, Transform endPoint)
+    private void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint, Transform endPoint)
     {
         GameObject enemyInstance = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         Enemy enemy = enemyInstance.GetComponent<Enemy>();
