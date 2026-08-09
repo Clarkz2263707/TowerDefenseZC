@@ -3,6 +3,10 @@ using UnityEditor;
 
 public class LevelGenerator : EditorWindow
 {
+    //Summary
+    //Handles the creation of the 4 levels that are used in game. Was used to make the grids which I then editted manually later
+    //Summary
+
     private int gridSize = 10;
     private GameObject tilePrefab;
     private Transform gridParent;
@@ -16,7 +20,7 @@ public class LevelGenerator : EditorWindow
     {
         GetWindow<LevelGenerator>("Level Generator");
     }
-
+    //gathers the tile prefabs, grid settings, and parent and establishes the buttons need pressing to clear and generate grids that are used. We made this was Gary
     private void OnGUI()
     {
         GUILayout.Label("Grid Settings", EditorStyles.boldLabel);
@@ -41,7 +45,7 @@ public class LevelGenerator : EditorWindow
             ClearGrid();
         }
     }
-
+    //generates a grid that follows the specifications we established.
     private void GenerateGrid()
     {
         if (tilePrefab == null)
@@ -61,7 +65,7 @@ public class LevelGenerator : EditorWindow
             }
         }
     }
-
+    //clears the grid.
     private void ClearGrid()
     {
         if (gridTiles != null)
