@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    //summary
+    //the base script used by all projectiles in how they are handled when fired from a tower.
+    //summary
+
     [SerializeField] private int damage = 10;
     [SerializeField] private float speed = 20f;
     [SerializeField] private float lifetime = 5f;
@@ -12,7 +16,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-   
+   //gets the enemy location and fires at that transform
     void Update()
     {
         if (target != null)
@@ -32,7 +36,7 @@ public class Projectile : MonoBehaviour
     {
         target = inputTarget;
     }
-
+    //when the projectile is fired and collides with an enemy it makes the enemy take damage and then deletes itself.
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform == target)
