@@ -188,3 +188,4 @@ MonoBehaviour:
   weaponTransform: {fileID: 3091059067215992956}
   tower: {fileID: 4002795753213376523}
   arrowPrefab: {fileID: 8412605169476838554, guid: af739ef048f80b6428ec479618806817, type: 3}
+  BallistaShoot: {fileID: 8300000, guid: 748ffb674c29da049a5b947d17cceca5, type: 3}

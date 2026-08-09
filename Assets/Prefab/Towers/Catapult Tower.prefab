@@ -126,6 +126,7 @@ MonoBehaviour:
   weaponTransform: {fileID: 800867984477701333}
   tower: {fileID: 3841389881696116811}
   catapultProjectilePrefab: {fileID: -2900069106284575598, guid: 917ce55813ad23e4b812dc345780e414, type: 3}
+  CatapultShoot: {fileID: 8300000, guid: 61fc607ef1e6549439523f0c9c32d407, type: 3}
 --- !u!1001 &907466860348023614
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -183,6 +183,7 @@ MonoBehaviour:
   weaponTransform: {fileID: 8838479572535267216}
   tower: {fileID: -2902884363716909033}
   cannonballPrefab: {fileID: 7506060625528697976, guid: 73cfe7ae082ec2c4e817aeb8ef719e6f, type: 3}
+  CannonShoot: {fileID: 8300000, guid: 9a2cf146d1bc3ff4283c0b4756e8aa1f, type: 3}
 --- !u!4 &8747061617470571010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7d4f035f8f7ef8248879ad8630a76b37, type: 3}
