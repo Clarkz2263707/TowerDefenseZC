@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+//summary
+//handles the overall functions of towers, we made this with Gary.
+//summary
 [RequireComponent(typeof(SphereCollider))]
 public abstract class Tower : MonoBehaviour
 {
@@ -14,7 +17,7 @@ public abstract class Tower : MonoBehaviour
 
     [SerializeField] public Transform weaponTransform;
     [SerializeField] private Tower tower;
-
+    //gathers the firerate cooldown, closest enemy, weapon transform, and enemy targetting.
     protected virtual void Update()
     {
         currentFireCooldown -= Time.deltaTime;
@@ -40,7 +43,7 @@ public abstract class Tower : MonoBehaviour
 
 
     protected abstract Enemy TargetEnemy { get; }
-
+    //removes enemy from list if they die
     protected void ClearDestroyedEnemies()
     {
         for (int i = enemiesInRange.Count - 1; i >= 0; i--)
@@ -51,7 +54,7 @@ public abstract class Tower : MonoBehaviour
             }
         }
     }
-
+    //adds enemy to target list if steps into collider range.
     private void OnTriggerEnter(Collider other)
     {
         Enemy enemy = other.GetComponent<Enemy>();
@@ -60,7 +63,7 @@ public abstract class Tower : MonoBehaviour
             enemiesInRange.Add(enemy);
         }
     }
-
+    //removes enemy from list if they leave collider range
     private void OnTriggerExit(Collider other)
     {
         Enemy enemy = other.GetComponent<Enemy>();
