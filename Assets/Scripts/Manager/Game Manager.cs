@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    //gets the player health and establisehs it so that the game can use it when enemies touch the crystal.
     public static GameManager Instance { get; private set; }
     public Health playerHealth;
 
