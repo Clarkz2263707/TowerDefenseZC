@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c851ac7bed732784aa1beabf6ba4984c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 40
   gameOver: GameOverMenu
 --- !u!114 &5253128592242151761
 MonoBehaviour:
