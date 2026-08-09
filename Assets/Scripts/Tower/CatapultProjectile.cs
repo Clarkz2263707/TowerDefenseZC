@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CatapultProjectile : MonoBehaviour
 {
+    //summary
+    //due to the catapult being AOE (I believe) this script obviously had to be different than the other projectile script. Basically it creates and manages the aoe sphere the projectile creates upon landing to deal damage to multiple targets.
+    //summary
     [SerializeField] private int damage = 20;
     [SerializeField] private float speed = 15f;
     [SerializeField] private float lifetime = 5f;
@@ -31,7 +34,7 @@ public class CatapultProjectile : MonoBehaviour
     {
         target = inputTarget;
     }
-
+    //creates explosion radiance for the projectile and then deals damage to enemies within that explosion radius using colliders.
     private void OnTriggerEnter(Collider other)
     {
         if (target != null && other.transform == target)
