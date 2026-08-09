@@ -3,7 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
+//Summary
+//Handles the waves on the various levels that you can customize via the inspector.
+//summary
+
 [System.Serializable]
+//gets the spawndata needed for the enemies
 public struct SpawnData
 {
     public GameObject EnemyToSpawn;
@@ -13,12 +18,13 @@ public struct SpawnData
 }
 
 [System.Serializable]
+//gathers the established in the inspector time before wave and enemy data
 public struct WaveData
 {
     public float TimeBeforeWave;
     public List<SpawnData> EnemyData;
 }
-
+//the actual wave manager and the operations needed to spawn waves.
 public class WaveManager : MonoBehaviour
 {
     public List<WaveData> levelwaveData;
@@ -35,7 +41,7 @@ public class WaveManager : MonoBehaviour
     {
         StartCoroutine(StartWave());
     }
-
+    //starts the wave using a for statement, waits for seconds, and uses the level wave data which is set in inspector.
     IEnumerator StartWave()
     {
         for (int i = 0; i < levelwaveData.Count; i++)
@@ -50,7 +56,7 @@ public class WaveManager : MonoBehaviour
         lastWaveSpawned = true;
         CheckForLevelEnd();
     }
-
+    //handles spawning of enemies
     public void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint, Transform endPoint)
     {
         GameObject enemyInstance = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
@@ -60,7 +66,7 @@ public class WaveManager : MonoBehaviour
         enemiesRemaining++;
         enemy.OnEnemyDeath += HandleEnemyDeath;
     }
-
+    //handles enemy death and checks if anymore waves are present
     private void HandleEnemyDeath(Enemy enemy)
     {
         enemiesRemaining--;
@@ -75,13 +81,13 @@ public class WaveManager : MonoBehaviour
             StartCoroutine(LoadNextLevelAfterDelay());
         }
     }
-
+    //loads next level after a short delay
     private IEnumerator LoadNextLevelAfterDelay()
     {
         yield return new WaitForSeconds(5f);
         LoadNextLevel();
     }
-
+    //handles the loading of next level.
     private void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
