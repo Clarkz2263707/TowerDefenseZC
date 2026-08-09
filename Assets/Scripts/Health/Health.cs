@@ -1,9 +1,12 @@
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
-
+//summary
+//handles the overall health which is used in game manager and enemy scripts.
+//summary
 public class Health : MonoBehaviour
 {
+    //establishes parameters used for health
     public event Action<int, int> onHealthChanged;
 
     [SerializeField] private int maxHealth = 20;
@@ -22,7 +25,7 @@ public class Health : MonoBehaviour
     {
         return currentHealth > 0;
     }
-
+    //when you take damage it displays in console and when you reach 0 it loads you to game over screen.
     public void TakeDamage(int damageAmount)
     {
         if (currentHealth > 0)
